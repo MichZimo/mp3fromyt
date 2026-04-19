@@ -1,6 +1,9 @@
 import yt_dlp
 
 def download_youtube_audio(url):
+    if "&list=" in url:
+        url = url.split("&list=")[0]
+        
     ydl_opts = {
         'format': 'bestaudio/best',
         'noplaylist': True,
